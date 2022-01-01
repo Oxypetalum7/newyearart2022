@@ -16,7 +16,7 @@ let particleAccer = [];
 const particleNum = 50;
 
 function preload() {
-    img = loadImage("../res/plum.svg");
+    img = loadImage("./res/plum.svg");
 }
 
 function setup() {
