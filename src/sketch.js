@@ -20,11 +20,12 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    canvas = createCanvas(windowWidth, windowHeight);
+    canvas.parent("P5Canvas");
     pg = createGraphics(200 , 200);
     pg.smooth()
     pg2 = createGraphics(1600,500);
-    pg3 = createGraphics(width, height);
+    pg3 = createGraphics(width, height+800);
     c1 = color(250);
     c2 = color(30, 30, 150);
     c3 = color(255, 230, 210);
@@ -53,7 +54,7 @@ function setup() {
 function draw() {
     clear()
     tint(255, alpha)
-    image(pg3, 0, 0);
+    image(pg3, 0, -800 + accr*200);
     image(pg2, width-800, height-400);
     noTint()
     x1 = e.exponentialOut(eX1) * PI/2;
@@ -112,7 +113,7 @@ function draw() {
     fill(0, alpha)
     textSize(64);
     textStyle(BOLD)
-    text("Happy New Year\n2022", width/2, height/2);
+    text("Happy New Year\n2022\n今年もよろしくお願いします", width/2, height/2);
 
 }
 
@@ -125,9 +126,9 @@ function setSunGradient(c1, c2) {
       var c = lerpColor(c1, c2, inter);
       pg3.strokeWeight(15)
       pg3.stroke(c);
-      pg3.ellipse(width/2-250, height/2-50, y*15)
+      pg3.ellipse(width/2-250, height/2+800, y*15)
     }
     pg3.noStroke()
     pg3.fill(255, 240, 230);
-    pg3.ellipse(width/2-250, height/2-50, 150)
+    pg3.ellipse(width/2-250, height/2+800, 150)
   }
